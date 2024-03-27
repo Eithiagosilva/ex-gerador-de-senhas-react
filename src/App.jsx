@@ -2,8 +2,8 @@ import { useState } from "react";
 
 function App() {
   const [password, setPassword] = useState("");
-  const [passwordSize, setPasswordSize] = useState(12);
   const [copyText, setCopyText] = useState("Copiar");
+  const [passwordSize, setPasswordSize] = useState(12);
 
   function generate() {
     const characters =
@@ -27,13 +27,7 @@ function App() {
       <h1>Gerador de senhas</h1>
       <div>
         <label htmlFor="passwordSize">Tamanho: </label>
-        <input
-          type="number"
-          id="passwordSize"
-          min={1}
-          value={passwordSize}
-          onChange={(ev) => setPasswordSize(ev.target.value)}
-        />
+        <Input passwordSize={passwordSize} setPasswordSize={setPasswordSize} />
       </div>
       <button onClick={generate}>
         Gerar senha de {passwordSize} caracteres
